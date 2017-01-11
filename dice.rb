@@ -7,4 +7,4 @@ end
 
 face=roll
 
-print "face jouée : " + string(face)
+print "face jouée : #{face}"
