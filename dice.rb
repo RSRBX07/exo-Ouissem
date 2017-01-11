@@ -1,11 +1,21 @@
 
 # retourne la valeur de la face lancée
-def roll(*num)
-    if num.length == 1
-        return num
-    else
-        faces_values=[1,2,3,4,5,6]
-        return faces_values[rand 6]
+# 1ere methode : argument optionnel
+=begin
+def roll(*cheated_value)
+    if cheated_value.length == 1
+        return cheated_value
+    else        
+        return 1 + rand(6)
+    end
+end
+=end
+# 2ème methode : argument optionnel
+def roll(cheated_value=nil)
+    if cheated_value!=nil
+        return cheated_value
+    else        
+        return 1 + rand(6)
     end
 end
 
