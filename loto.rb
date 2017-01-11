@@ -12,22 +12,6 @@ end
 
 picked=(1..45).to_a.shuffle.take 5
 
-=begin
-picked_row_col= Array.new(5)
-cpt_line=0
-picked.each do |picked_elt|
-    picked_row_col[cpt_line] = []
-    picked_row_col[cpt_line][0] = (picked_elt-1) / 9
-    picked_row_col[cpt_line][1] = ((picked_elt-1) % 9) - 1
-    if (picked_row_col[cpt_line][1] == 0) 
-         picked_row_col[cpt_line][1] = 8
-    end
-    cpt_line+=1
-end
-
-print picked_row_col
-=end
-
 repartition.each_with_index do |line,numl|
     line.each_with_index do |cellule,numc|        
         ch_cellule = cellule.to_s
