@@ -1,6 +1,6 @@
 def saisir msg
     print(msg)
-    return gets().chomp.to_i
+    return get).chomp.to_i
 end
 
 def convertir nombre
