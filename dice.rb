@@ -14,5 +14,13 @@ def roll(cheated_value=nil)
      return 1 + rand(6)
 end
 
+infos = {}
+print "tapez votre nom et prénom : "
+infos["author"] = gets.chomp
+print "tapez votre ville : "
+infos["ville"] = gets.chomp
+
 print "face jouée : #{roll} \n"
-print "face pipé : #{roll 3}"
+print "face pipé : #{roll 3} \n"
+
+puts "Made with love @ #{infos['ville']} by #{infos['author']}"
