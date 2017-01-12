@@ -1,25 +1,18 @@
 
 # retourne la valeur de la face lancée
-# 1ere methode : argument optionnel
 =begin
+# 1ere methode : argument optionnel
 def roll(*cheated_value)
-    if cheated_value.length == 1
-        return cheated_value
-    else        
-        return 1 + rand(6)
-    end
+    return cheated_value if cheated_value.length == 1
+    return 1 + rand(6)    
 end
 =end
+
 # 2ème methode : argument optionnel
 def roll(cheated_value=nil)
-    if cheated_value!=nil
-        return cheated_value
-    else        
-        return 1 + rand(6)
-    end
+     return cheated_value if cheated_value
+     return 1 + rand(6)
 end
 
-face=roll
-face_cheated=roll 5
-print "face jouée : #{face} \n"
-print "face pipé : #{face_cheated}"
+print "face jouée : #{roll} \n"
+print "face pipé : #{roll 3}"
