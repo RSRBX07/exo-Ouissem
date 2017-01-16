@@ -6,19 +6,34 @@ class Scanned_Grid
             begin
                 print("valeur n° #{i} :")
                 value = gets.to_i
-                if(value <1)||(value>45)
+                if input_out_of_range? value
                     puts "nombre non accepté (il faut choisir un nombre entre 1 et 45) !!!"
-                elsif @grid.include? value
+                elsif existing_value? value
                     puts "nombre déja utilisé, il faut choisir un nombre différent !!!"
                 end
-            end while (value <1)||(value>45)||(@grid.include? value)
+            end while input_unvalid? value
             @grid.push value
         end
     end
     
     def get_grid
-        return @grid
-    end    
+        @grid
+    end
+        
+    private
+        
+    def input_unvalid? value
+        input_out_of_range?(value) || existing_value?(value)
+    end
+        
+    def input_out_of_range? value
+        (value <1)||(value>45)
+    end
+        
+    def existing_value? value
+        @grid.include? value
+    end
+        
 end
 
 class Picked_Grid    
