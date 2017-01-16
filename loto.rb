@@ -96,6 +96,8 @@ class Party
     end
 end
 
+# on fait met en commentaire la partie suivante parcequ'elle sera transférée vers le fichier loto_main
+=begin
 loto = {lundi: Loto.new , Mardi: Loto.new , mercredi: Loto.new , jeudi: Loto.new , vendredi: Loto.new , samedi: Loto.new , dimanche: Loto.new}
 
 # une seule partie correspondante au Lundi
@@ -109,3 +111,4 @@ loto[:lundi].show_grids
 end
 
 gets
+=end
