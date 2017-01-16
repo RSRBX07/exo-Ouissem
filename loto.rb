@@ -7,9 +7,11 @@ class Scanned_Grid
                 print("valeur n° #{i} :")
                 value = gets.to_i
                 if(value <1)||(value>45)
-                    puts "nombre non accepté (il faut choisir un nombre entre 1 et 45)"
+                    puts "nombre non accepté (il faut choisir un nombre entre 1 et 45) !!!"
+                elsif @grid.include? value
+                    puts "nombre déja utilisé, il faut choisir un nombre différent !!!"
                 end
-            end while (value <1)||(value>45)
+            end while (value <1)||(value>45)||(@grid.include? value)
             @grid.push value
         end
     end
@@ -45,6 +47,10 @@ end
 
 class Loto
     def initialize
+        @picked_grid = nil
+        @repartition = nil
+    end
+    def picking
         @picked_grid = Picked_Grid.new
         @repartition = Repartition_Matrix.new
     end
@@ -72,12 +78,17 @@ class Loto
 end
 
 class Party
-    def initialize
+    def initialize loto
         @grids=[]        
+        @loto_ref = loto
     end
     def add_grid
-        puts "saisie d'une nouvelle grille"
-        @grids.push Scanned_Grid.new
+        if ! @loto_ref.get_grid
+            puts "saisie d'une nouvelle grille"            
+            @grids.push Scanned_Grid.new
+        else
+            puts "tirage déjà fait, reéssayer un autre jour."
+        end
     end    
 
     def get_grid_number
@@ -98,17 +109,23 @@ end
 
 # on fait met en commentaire la partie suivante parcequ'elle sera transférée vers le fichier loto_main
 =begin
-loto = {lundi: Loto.new , Mardi: Loto.new , mercredi: Loto.new , jeudi: Loto.new , vendredi: Loto.new , samedi: Loto.new , dimanche: Loto.new}
-
+parties = {lundi: nil, Mardi: nil, mercredi: nil, jeudi: nil, vendredi: nil, samedi: nil, dimanche: nil}
+lotos = {lundi: Loto.new, Mardi: Loto.new, mercredi: Loto.new, jeudi: Loto.new, vendredi: Loto.new, samedi: Loto.new, dimanche: Loto.new}
 # une seule partie correspondante au Lundi
-my_party= Party.new
-my_party.add_grid
-my_party.add_grid
+parties[:lundi]= Party.new lotos[:lundi]
+parties[:lundi].add_grid
+parties[:lundi].add_grid
 
-loto[:lundi].show_grids
-0.upto my_party.get_grid_number-1 do |i|
-    my_party.validate_grid i,loto[:lundi].get_grid
+lotos[:lundi].picking
+
+#test de add_grid après tirage
+parties[:lundi].add_grid
+
+lotos[:lundi].show_grids
+0.upto parties[:lundi].get_grid_number-1 do |i|
+    parties[:lundi].validate_grid i,loto[:lundi].get_grid
 end
 
 gets
+
 =end
