@@ -1,4 +1,4 @@
-class Scanned_Grid    
+class ScannedGrid    
     def initialize
         @grid = []     
         print "tapez vos 5 valeurs choisis : \n"
@@ -36,7 +36,7 @@ class Scanned_Grid
         
 end
 
-class Picked_Grid    
+class PickedGrid    
     def initialize
         @grid=[]
         @grid=(1..45).to_a.shuffle.take 5        
@@ -47,7 +47,7 @@ class Picked_Grid
     end
 end
 
-class Repartition_Matrix    
+class RepartitionMatrix    
     def initialize
         @matrix=[]
         all = (1..45).to_a
@@ -66,8 +66,8 @@ class Loto
         @repartition = nil
     end
     def picking
-        @picked_grid = Picked_Grid.new
-        @repartition = Repartition_Matrix.new
+        @picked_grid = PickedGrid.new
+        @repartition = RepartitionMatrix.new
     end
 
     def show_grids 
@@ -100,7 +100,7 @@ class Party
     def add_grid
         if ! @loto_ref.get_grid
             puts "saisie d'une nouvelle grille"            
-            @grids.push Scanned_Grid.new
+            @grids.push ScannedGrid.new
         else
             puts "tirage déjà fait, reéssayer un autre jour."
         end
