@@ -6,14 +6,14 @@ parties[:lundi]= Party.new lotos[:lundi]
 parties[:lundi].add_grid
 parties[:lundi].add_grid
 
-lotos[:lundi].picking
+lotos[:lundi].pick
 
 #test de add_grid après tirage
 parties[:lundi].add_grid
 
 lotos[:lundi].show_grids
 0.upto parties[:lundi].grid_number-1 do |i|
-    parties[:lundi].validate_grid i,lotos[:lundi].grid
+    parties[:lundi].evaluate_grid i,lotos[:lundi].picked_grid
 end
 
 gets

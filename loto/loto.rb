@@ -64,11 +64,12 @@ class RepartitionMatrix
 end
 
 class Loto
+    attr_reader :picked_grid
     def initialize
         @picked_grid = nil
         @repartition = nil
     end
-    def picking
+    def pick
         @picked_grid ||= PickedGrid.new
         @repartition = RepartitionMatrix.new
     end
@@ -89,21 +90,24 @@ class Loto
             puts
         end    
         puts        
-    end
-    def grid
-        return @picked_grid
-    end
+    end   
 end
 
 class Party
+    attr_reader :grids, :scanned_grid
     def initialize loto
         @grids=[]        
         @loto_ref = loto
     end
-    def add_grid
-        if ! @loto_ref.grid
-            puts "saisie d'une nouvelle grille"            
-            @grids.push ScannedGrid.new
+    def add_grid grid_arg=nil
+        if ! @loto_ref.picked_grid
+            if grid_arg == nil
+                puts "saisie d'une nouvelle grille"  
+                @scanned_grid = ScannedGrid.new          
+                @grids.push @scanned_grid
+            else
+                @grids.push grid_arg.to_a
+            end
             puts "Votre grille de jeu est bien enregistrée"            
         else
             puts "tirage déjà fait, reéssayer un autre jour."
@@ -114,7 +118,7 @@ class Party
         @grids.length
     end
 
-    def validate_grid num,picked
+    def evaluate_grid num,picked
         print "Grille jouée :"
         print @grids[num].grid
         puts       
@@ -135,14 +139,14 @@ parties[:lundi]= Party.new lotos[:lundi]
 parties[:lundi].add_grid
 parties[:lundi].add_grid
 
-lotos[:lundi].picking
+lotos[:lundi].pick
 
 #test de add_grid après tirage
 parties[:lundi].add_grid
 
 lotos[:lundi].show_grids
 0.upto parties[:lundi].grid_number-1 do |i|
-    parties[:lundi].validate_grid i,loto[:lundi].grid
+    parties[:lundi].evaluate_grid i,loto[:lundi].picked_grid
 end
 
 gets
