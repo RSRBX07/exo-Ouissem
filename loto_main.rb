@@ -17,3 +17,5 @@ lotos[:lundi].show_grids
 end
 
 gets
+
+gets

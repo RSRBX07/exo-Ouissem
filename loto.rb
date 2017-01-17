@@ -51,7 +51,7 @@ class RepartitionMatrix
     def initialize
         @matrix=[]
         all = (1..45).to_a
-        all.shuffle!
+        #all.shuffle!
         @matrix=[all[0..8],all[9..17],all[18..26],all[27..35],all[36..44]]        
     end
     
@@ -66,7 +66,7 @@ class Loto
         @repartition = nil
     end
     def picking
-        @picked_grid = PickedGrid.new
+        @picked_grid ||= PickedGrid.new
         @repartition = RepartitionMatrix.new
     end
 
