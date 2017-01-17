@@ -1,4 +1,4 @@
-class ScannedGrid    
+class ScannedGrid       
     def initialize
         @grid = []     
         print "tapez vos 5 valeurs choisis : \n"
@@ -16,7 +16,8 @@ class ScannedGrid
         end
     end
     
-    def get_grid
+    public
+    def grid
         @grid
     end
         
@@ -42,8 +43,9 @@ class PickedGrid
         @grid=(1..45).to_a.shuffle.take 5        
     end
 
-    def get_grid
-        return @grid
+    public
+    def grid
+        @grid
     end
 end
 
@@ -55,8 +57,9 @@ class RepartitionMatrix
         @matrix=[all[0..8],all[9..17],all[18..26],all[27..35],all[36..44]]        
     end
     
-    def get_matrix
-        return @matrix
+    public
+    def matrix
+        @matrix
     end
 end
 
@@ -71,10 +74,10 @@ class Loto
     end
 
     def show_grids 
-        @repartition.get_matrix.each_with_index do |line|
+        @repartition.matrix.each_with_index do |line|
             line.each_with_index do |cellule|        
                 ch_cellule = cellule.to_s
-                if @picked_grid.get_grid.include? (cellule)
+                if @picked_grid.grid.include? (cellule)
                     ch_cellule = "(" + ch_cellule + ")"
                 end
                 while ch_cellule.length < 8 
@@ -87,7 +90,7 @@ class Loto
         end    
         puts        
     end
-    def get_grid
+    def grid
         return @picked_grid
     end
 end
@@ -98,23 +101,24 @@ class Party
         @loto_ref = loto
     end
     def add_grid
-        if ! @loto_ref.get_grid
+        if ! @loto_ref.grid
             puts "saisie d'une nouvelle grille"            
             @grids.push ScannedGrid.new
+            puts "Votre grille de jeu est bien enregistrée"            
         else
             puts "tirage déjà fait, reéssayer un autre jour."
         end
     end    
 
-    def get_grid_number
-        return @grids.length
+    def grid_number
+        @grids.length
     end
 
     def validate_grid num,picked
         print "Grille jouée :"
-        print @grids[num].get_grid
+        print @grids[num].grid
         puts       
-        if @grids[num].get_grid.sort==picked.get_grid.sort
+        if @grids[num].grid.sort==picked.grid.sort
             puts "-\|/-/|\-\|/-/|\-\|/-/|\-  Bravos c'est gagnée  -\|/-/|\-\|/-/|\-\|/-/|\-' :"
         else
             puts "jeu perdu."
@@ -137,8 +141,8 @@ lotos[:lundi].picking
 parties[:lundi].add_grid
 
 lotos[:lundi].show_grids
-0.upto parties[:lundi].get_grid_number-1 do |i|
-    parties[:lundi].validate_grid i,loto[:lundi].get_grid
+0.upto parties[:lundi].grid_number-1 do |i|
+    parties[:lundi].validate_grid i,loto[:lundi].grid
 end
 
 gets

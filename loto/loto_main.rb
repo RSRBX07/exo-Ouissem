@@ -12,8 +12,8 @@ lotos[:lundi].picking
 parties[:lundi].add_grid
 
 lotos[:lundi].show_grids
-0.upto parties[:lundi].get_grid_number-1 do |i|
-    parties[:lundi].validate_grid i,loto[:lundi].get_grid
+0.upto parties[:lundi].grid_number-1 do |i|
+    parties[:lundi].validate_grid i,lotos[:lundi].grid
 end
 
 gets
