@@ -1,8 +1,6 @@
-class SomeUsefulClass
-  def self.test_singleton
-    puts self
-  end
-end
+require "./vehicle/vehicle.rb"
 
-puts SomeUsefulClass
-puts SomeUsefulClass.test_singleton
+my_vehicle = Vehicle.new "Lille"
+my_vehicle.move "Paris"
+
+puts my_vehicle.start_position + "  >>>>>>  " + my_vehicle.target_position
