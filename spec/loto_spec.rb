@@ -31,8 +31,8 @@ RSpec.describe Loto do
         gr2 = [6,7,8,9,10]        
         p.add_grid gr1
         p.add_grid gr2
-        p.add_grid 
-        gr3 = p.scanned_grid
+        #p.add_grid 
+        gr3 = p.scanned_grid        
         expect(p.grids).to include gr1
         expect(p.grids).to include gr2
         expect(p.grids).to include gr3

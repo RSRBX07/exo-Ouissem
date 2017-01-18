@@ -107,6 +107,7 @@ class Party
                 @grids.push @scanned_grid
             else
                 @grids.push grid_arg.to_a
+                @scanned_grid = grid_arg.to_a
             end
             puts "Votre grille de jeu est bien enregistrée"            
         else
