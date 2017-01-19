@@ -23,4 +23,13 @@ puts "etat 4 : " + my_plane.state + "  --- roue sorties :" + my_plane.wheel_out.
 my_plane.stop
 puts "etat 5 : " + my_plane.state + "  --- roue sorties :" + my_plane.wheel_out.to_s
 
-print my_plane.class.instances_list
+print my_plane.class.instances_list ; puts
+print my_vehicle.class.instances_list ; puts
+## un grand problème le suivant : une variable de classe est accessible dans 
+## tout le thread de ruby actuel, donc à l'extérieur du class où elle est définie'
+
+@@instances_list = [NilClass]
+my_vehicle2 = Vehicle.new "Lille"
+print my_vehicle2.class.instances_list
+
+ 
