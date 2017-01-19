@@ -24,3 +24,5 @@ my_plane.stop
 puts "etat 5 : " + my_plane.state + "  --- roue sorties :" + my_plane.wheel_out.to_s
 
 print my_plane.class.instances_list
+print my_vehicle.class.instances_list
+ 
