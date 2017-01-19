@@ -1,20 +1,19 @@
 class Vehicle
     attr_reader :position , :state
-    @@counter=0;
+    @@instances_list=[];
     
     def self.new ville=nil
          puts "--->  Instanciating vehicle is started   <----"
-         super
-         puts "--->  Instanciating vehicle is finished   <----"         
-         @position = ville
-         @@counter +=1
-         super
+         obj = super
+         puts "--->  Instanciating vehicle is finished   <----"                          
+         obj
     end
     
     def initialize ville=nil
         puts "--->  Initialization started   <----"
         @position = ville
         @state = "Stopped"
+        @@instances_list.push self.class
         puts "--->  Initialization finished   <----"
     end
 
@@ -22,7 +21,7 @@ class Vehicle
         @position = ville
     end   
 
-    def Vehicle.counter
-        @@counter
+    def Vehicle.instances_list
+        @@instances_list
     end
 end
