@@ -7,7 +7,7 @@ my_vehicle = Vehicle.new "Lille"
 #my_plane_2 = Plane.new
 #my_plane_2.set_position "Lille"
 
-puts "Position actuelle   >>>>>>  " + my_plane.position
+#puts "Position actuelle   >>>>>>  " + my_plane.position
 
 puts "etat 1 : " + my_plane.state + "  --- roue sorties :" + my_plane.wheel_out.to_s
 
@@ -25,11 +25,17 @@ puts "etat 5 : " + my_plane.state + "  --- roue sorties :" + my_plane.wheel_out.
 
 print my_plane.class.instances_list ; puts
 print my_vehicle.class.instances_list ; puts
-## un grand problème le suivant : une variable de classe est accessible dans 
-## tout le thread de ruby actuel, donc à l'extérieur du class où elle est définie'
 
-@@instances_list = [NilClass]
+## creat a global test variable 
+instances_list = []
+
+my_plane2 = Plane.new "Lille"
 my_vehicle2 = Vehicle.new "Lille"
-print my_vehicle2.class.instances_list
 
- 
+## displaying global test variable content to verify that 
+## it's different from the local class variable 
+print instances_list ; puts
+
+print my_plane.class.instances_list ; puts
+print my_vehicle.class.instances_list ; puts
+
