@@ -26,11 +26,14 @@ puts "etat 5 : " + my_plane.state + "  --- roue sorties :" + my_plane.wheel_out.
 print my_plane.class.instances_list ; puts
 print my_vehicle.class.instances_list ; puts
 
+## creat a global test variable 
 instances_list = []
 
 my_plane2 = Plane.new "Lille"
 my_vehicle2 = Vehicle.new "Lille"
 
+## displaying global test variable content to verify that 
+## it's different from the local class variable 
 print instances_list ; puts
 
 print my_plane.class.instances_list ; puts
