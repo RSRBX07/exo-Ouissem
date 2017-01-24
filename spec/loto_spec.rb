@@ -1,4 +1,4 @@
-require "./loto/loto.rb"
+require "./lib/loto/loto.rb"
 
 RSpec.describe Loto do
     it 'get grid' do
