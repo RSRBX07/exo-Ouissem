@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<div class="col-md-6 col-md-offset-4">
 <p>
   <strong>Name:</strong>
   <%= @game.name %>
@@ -10,5 +11,6 @@
   <%= @game.description %>
 </p>
 
-<%= link_to 'Edit', edit_game_path(@game) %> |
+<!--<%= link_to 'Edit', edit_game_path(@game) %> |-->
 <%= link_to 'Back', games_path %>
+</div>
