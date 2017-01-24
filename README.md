@@ -1,12 +1,24 @@
-# exo-Ouissem
+# README
 
-ensemble d'exercices d'initiation à Ruby
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-[![CircleCI](https://circleci.com/gh/RSRBX07/exo-Ouissem.svg?style=svg)](https://circleci.com/gh/RSRBX07/exo-Ouissem)
+Things you may want to cover:
 
+* Ruby version
 
-## config required
-- ruby > 2.0
-- git
-- MS VS Code (conseillé) + pry(gem) + rspec(gem)
-- compte et repository sur GitHub.com et CircleCI.com
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
