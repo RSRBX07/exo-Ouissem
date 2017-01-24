@@ -1,29 +1,22 @@
 <p id="notice"><%= notice %></p>
-
+<center>
 <h1>Games</h1>
 
-<table>
+<table width="60%">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
+      <th>Name</th>            
     </tr>
   </thead>
 
   <tbody>
     <% @games.each do |game| %>
-      <tr>
-        <td><%= game.name %></td>
-        <td><%= game.description %></td>
-        <td><%= link_to 'Show', game %></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
-        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <tr>                
+        <td align="center"><%= link_to game.name, "games/" + game.id.to_s %></td>        
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</center>
 <br>
 
-<%= link_to 'New Game', new_game_path %>

@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Game.destroy_all
-Game.create[
+Game.create [
     {name: "Loto du Lundi", description: "Le tirage est 1,2,3,4 et 5", players:10000},
     {name: "Loto du Mardi", description: "Le tirage est 11,12,13,14 et 15", players:20000},
     {name: "Loto du Mercredi", description: "Le tirage est 21,22,23,24 et 25", players:30000},
