@@ -2,15 +2,19 @@
 
 <div class="col-md-6 col-md-offset-4">
 <p>
-  <strong>Name:</strong>
-  <%= @game.name %>
+  <strong>
+    <%= @game.name %>
+  </strong>
 </p>
 
-<p>
-  <strong>Description:</strong>
+<p>  
   <%= @game.description %>
 </p>
 
+<p>  
+  <%= @game.draw %>
+</p>
 <!--<%= link_to 'Edit', edit_game_path(@game) %> |-->
+<br>
 <%= link_to 'Back', games_path %>
 </div>

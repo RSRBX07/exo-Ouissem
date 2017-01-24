@@ -8,9 +8,9 @@
 
 Game.destroy_all
 Game.create [
-    {name: "Loto du Lundi", description: "Le tirage est 1,2,3,4 et 5", players:10000},
-    {name: "Loto du Mardi", description: "Le tirage est 11,12,13,14 et 15", players:20000},
-    {name: "Loto du Mercredi", description: "Le tirage est 21,22,23,24 et 25", players:30000},
-    {name: "Loto du Jeudi", description: "Le tirage est 31,32,33,34 et 35", players:40000},
-    {name: "Loto du Vendredi", description: "Le tirage est 41,42,43,44 et 45", players:50000}
+    {name: "Loto du Lundi", description: "Tirage du premier lundi du mois de janvier", players:10000,draw:"1,2,3,4,5"},
+    {name: "Loto du Mardi", description: "Tirage du premier Mardi du mois de janvier", players:20000,draw:"11,12,13,14,15"},
+    {name: "Loto du Mercredi", description: "Tirage du premier Mercredi du mois de janvier", players:30000,draw:"21,22,23,24,25"},
+    {name: "Loto du Jeudi", description: "Tirage du premier Jeudi du mois de janvier", players:40000,draw:"31,32,33,34,35"},
+    {name: "Loto du Vendredi", description: "Tirage du premier Vendredi du mois de janvier", players:50000,draw:"41,42,43,44,45"}
 ]

@@ -1,4 +1,4 @@
-<div class="col-md-6 col-md-offset-4">
+<div class="col-md-6 col-md-offset-3">
 <p id="notice"><%= notice %></p>
 <h1>Games</h1>
 
@@ -12,7 +12,7 @@
   <tbody>
     <% @games.each do |game| %>
       <tr>                
-        <td align="center"><div class="btn btn-primary btn-lg active"><%= link_to game.name, "games/" + game.id.to_s %></div></td>        
+        <td align="center"><div class="btn btn-info active" style="width:40%;"><%= link_to game.name, "games/" + game.id.to_s %></div></td>        
       </tr>
     <% end %>
   </tbody>
